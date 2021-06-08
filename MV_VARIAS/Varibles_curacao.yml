@@ -1,13 +1,13 @@
 ---- 
-cluster: Cluster_ansible
-datacenter: CURANSIBLEDCLAB01
-folder: /IIAS
-hostname: "10.215.99.55"
-password: Lab2021*
+cluster: 'Cluster_ansible'
+datacenter: 'CURANSIBLEDCLAB01``
+folder: '/IIAS
+hostname: '10.215.99.55'
+password: 'Lab2021*'
 server: 
   - server1
   - server2
-template: TEMPLETE_LINUX
-username: administrator@vsphere.local
+template: 'TEMPLETE_LINUX'
+username: 'administrator@vsphere.local'
 
 
