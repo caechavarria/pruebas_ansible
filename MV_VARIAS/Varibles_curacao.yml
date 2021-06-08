@@ -1,6 +1,6 @@
 ---- 
 - cluster: 'Cluster_ansible'
-  datacenter: 'CURANSIBLEDCLAB01``
+  datacenter: 'CURANSIBLEDCLAB01'
   folder: '/IIAS'
   hostname: '10.215.99.55'
   password: 'Lab2021*'
