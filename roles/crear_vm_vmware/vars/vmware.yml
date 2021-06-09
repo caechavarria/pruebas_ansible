@@ -1,0 +1,60 @@
+---
+# vars file for Create VMs ON Vmware
+
+#################################################################################
+########     VARIABLES PLAYBOOK CREACION DE VMs DESDE TMEPLATE VMWARE    ########
+#################################################################################
+
+#########################################
+###### Definicion Variables VMware ######
+#########################################
+# IP del vCenter donde se crearan las VMs
+vcenter: '10.215.99.55'                         # IP del vCenter donde se crearan las VMs
+vsphere_user: 'administrator@vsphere.local'     # Usuario con privilegios sobre vSphere para creacion de VMs
+vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere con privilegios para creacion de VMs
+datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro de vSphere en el cual seran alojadas las VMs.
+cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
+template: 'TEMPLETE_LINUX'                         # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
+vm_folder: '/VM-Linux'
+vm_net: 'Dospinos_Management'                   # Nombre del dispositivo de red de VMware tarjetas de red de las VMs.
+dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
+#hostname: name="{{my_hostname}}"
+##############################################
+###### Varibles Para Maquinas Virtuales ######
+##############################################
+
+# Variables VM numero 1 - Servidor BD
+SRV:
+
+# Variables VM numero 1 
+  - name: VM1
+    role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
+    vm_name: 'CURLABLIX03'             # Variable que define el nombre de la VM en VMware.
+    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+      - name: '{{ vm_net }}'            
+        ip: '10.215.99.106'
+        netmask: '255.255.255.0'
+        gateway: '10.215.99.254'
+        type: static
+    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+      - size_gb: 20
+        type: thin
+        datastore: '{{ dstore }}'
+  - name: VM2
+    role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
+    vm_name: 'CURLABLIX02'             # Variable que define el nombre de la VM en VMware.
+    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+      - name: '{{ vm_net }}'            
+        ip: '10.215.99.105'
+        netmask: '255.255.255.0'
+        gateway: '10.215.99.254'
+        type: static
+    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+      - size_gb: 20
+        type: thin
+        datastore: '{{ dstore }}'
+...

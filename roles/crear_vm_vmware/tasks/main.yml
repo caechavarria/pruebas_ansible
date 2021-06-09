@@ -1,0 +1,7 @@
+---
+# tasks file for Deploy VMs
+
+- include_tasks: deploy_vm_vmware.yml
+  tags:
+    - vmware
+...
