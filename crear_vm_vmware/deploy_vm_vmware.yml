@@ -1,31 +1,28 @@
----
-- name: Create a VM from a template
-  vmware_guest:
-    hostname: '{{ vcenter }}'
-    username: '{{ vsphere_user }}'
-    password: '{{ vsphere_password }}'
-    validate_certs: no
-    name: '{{ item.vm_name }}'
-    state: poweredon
-    template: '{{ template }}'
-    datacenter: '{{ datacenter }}'
-    folder: '{{ vm_folder }}'
-    cluster: "{{ cluster_name }}"
-    disk: "{{ item.disks }}"
-    hardware:
-      memory_mb: '{{ item.ram }}'
-      num_cpus: '{{ item.cpu }}'
-      scsi: paravirtual
-    customization:
-      autologon: yes
-      dns_servers:
-       - 8.8.8.8 
-#      - 10.129.0.241 
-#      - 10.140.1.41 
-#      domain: 
-    networks: "{{ item.network }}"
-    wait_for_ip_address: yes
+--- 
+- 
+  name: "Create a VM from a template"
   register: deploy
+  vmware_guest: 
+    cluster: "{{ cluster_name }}"
+    customization: 
+      autologon: true
+      dns_servers: 
+        - "8.8.8.8"
+    datacenter: "{{ datacenter }}"
+    disk: "{{ item.disks }}"
+    folder: "{{ vm_folder }}"
+    hardware: 
+      memory_mb: "{{ item.ram }}"
+      num_cpus: "{{ item.cpu }}"
+      scsi: paravirtual
+    hostname: "{{ vcenter }}"
+    name: "{{ item.vm_name }}"
+    networks: "{{ item.network }}"
+    password: "{{ vsphere_password }}"
+    state: poweredon
+    template: "{{ template }}"
+    username: "{{ vsphere_user }}"
+    validate_certs: false
+    wait_for_ip_address: true
   with_items: 
-     - '{{ SRV }}'
-... 
+    - "{{ SRV }}"
