@@ -1,6 +1,6 @@
 ---
- - name: Clone multiple VMs
-   hosts: localhost 
+ - name: Create a VM from a template
+   vmware_guest:
    gather_facts: false
    vars_files: 
      multiple_vms.yml
