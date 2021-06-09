@@ -1,6 +1,5 @@
 --- 
-- 
-  name: "Create a VM from a template"
+- name: "Create a VM from a template"
   register: deploy
   vmware_guest: 
     cluster: "{{ cluster_name }}"
