@@ -1,1 +1,0 @@
-#master		ansible_host=10.215.99.100     ansible_ssh_pass=Ansible2021*	ansible_role=master

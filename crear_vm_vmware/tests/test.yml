@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  connection: local
-  gather_facts: false
-  roles:
-    - /opt/ansible/roles/alert_mov_VMware
-  vars_files:
-    - /opt/ansible/roles/alert_mov_VMware/vars/main.yml
-...
