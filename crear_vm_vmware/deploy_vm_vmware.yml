@@ -1,0 +1,53 @@
+---
+########################### INSTALACIÓN VMS on VMWARE ############ ####################
+    # Licencia:(GPLV2)
+    # Version Ansible Minima - 2.7
+    # Plataforma - VMware 
+#######################################################################################
+# :::::::::::::::::::::::::FILES DE INSTALACIÓN::::::::::::::::::::::::::::::::::::::::::
+#   - Usted debe contar con una plantilla de lINUX  en el vCenter al cual se realizará
+#     la conexion para la ejecucion del playbook.
+#   - Debe contar con el API pyvmomi en la maquina de ansible desde la cual lanzará la 
+#     conexion al vCenter.
+#   - Debe modificar la ruta del archivo de variables en este playbook (vars_files), de
+#     acuerdo a la ubicacion en el equipo con ansible desde donde se va a ejecutar.
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# :::::::::::::::::::::::::VARIABLES DE PLAYBOOK::::::::::::::::::::::::::::::::::::::::::
+#   - Debe modificar la ruta del archivo de variables en este playbook (vars_files), de
+#     acuerdo a la ubicacion en el equipo con ansible desde donde se va a ejecutar.
+#   - Definir las variables en el archivo main.yml de la carpeta de vars para la creacion 
+#     en VMware  de las VMs correspondientes al ambiente de la plataforma.
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#########################################################################################
+
+- name: Create a VM from a template
+  vmware_guest:
+    hostname: '{{ vcenter }}'
+    username: '{{ vsphere_user }}'
+    password: '{{ vsphere_password }}'
+    validate_certs: no
+    name: '{{ item.vm_name }}'
+    state: poweredon
+    template: '{{ template }}'
+    datacenter: '{{ datacenter }}'
+    folder: '{{ vm_folder }}'
+    cluster: "{{ cluster_name }}"
+    disk: "{{ item.disks }}"
+    hardware:
+      memory_mb: '{{ item.ram }}'
+      num_cpus: '{{ item.cpu }}'
+      scsi: paravirtual
+    customization:
+      autologon: yes
+      dns_servers:
+       - 8.8.8.8 
+#      - 10.129.0.241 
+#      - 10.140.1.41 
+#      domain: 
+    networks: "{{ item.network }}"
+    wait_for_ip_address: yes
+  register: deploy
+  with_items: 
+     - '{{ SRV }}'
+... 
+
