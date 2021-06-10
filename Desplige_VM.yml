@@ -4,8 +4,10 @@
   gather_facts: false
   vars:
     - ansible_python_interpreter: /usr/bin/python3 
+  inlcuded:
+    Create-PortGroup.yml
   roles:
-    - Crear_PortGroup
+    #- Crear_PortGroup
     - crear_vm_vmware
   vars_files:
     - roles/crear_vm_vmware/vars/vmware.yml
