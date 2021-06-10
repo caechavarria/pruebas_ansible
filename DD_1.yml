@@ -10,7 +10,7 @@
         password: 'Lab2021*'
         validate_certs: False
         datacenter: 'CURANSIBLEDCLAB01'
-        name: 'Windows-1'
+        name: 'LINUX01'
         disk:
           - size_gb: 2
             type: thin
