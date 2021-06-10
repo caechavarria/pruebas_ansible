@@ -15,8 +15,8 @@
           - size_gb: 2
             type: thin
             state: present
-            scsi_controller: '1'
+            #scsi_controller: '1'
             unit_number: '1'
             scsi_type: 'paravirtual'
             datastore: 'Management'
-            
+           
