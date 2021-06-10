@@ -19,6 +19,15 @@ vm_folder: '/VM-Linux'
 vm_net: 'Dospinos_Management'                   # Nombre del dispositivo de red de VMware tarjetas de red de las VMs.
 dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
 #hostname: name="{{my_hostname}}"
+
+##############################################
+########### VARIABLES PORT GROUP #############
+##############################################
+
+vswitch_name: vSwitch0
+portgroup_name: PG60
+vlan_id: 60
+
 ##############################################
 ###### Varibles Para Maquinas Virtuales ######
 ##############################################
