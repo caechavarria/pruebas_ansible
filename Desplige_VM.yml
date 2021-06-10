@@ -5,10 +5,9 @@
   vars:
     - ansible_python_interpreter: /usr/bin/python3 
   included: 
-    - create
+    - Create-PortGroup.yml
   roles:
     - crear_vm_vmware
   vars_files:
     - roles/crear_vm_vmware/vars/vmware.yml
-
 ...
