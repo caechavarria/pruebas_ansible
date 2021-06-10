@@ -21,6 +21,14 @@ dstore: 'Management'                            # Nombre del datastore donde se 
 hostname: 'new_hostname'                        # Nombre del MV 
 
 ##############################################
+########### VARIABLES PORT GROUP #############
+##############################################
+
+vswitch_name: vSwitch0
+portgroup_name: PG55
+vlan_id: 55
+
+##############################################
 ###### Varibles Para Maquinas Virtuales ######
 ##############################################
 
