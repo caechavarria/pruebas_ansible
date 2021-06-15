@@ -1,12 +1,5 @@
 ---
-- hosts: all
-  connection: local
-  gather_facts: false
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  vars_files:
-    - roles/crear_vm_vmware/vars/vmware.yml
-  tasks:
+ - tasks:
     - name: Add Portgroup with Promiscuous
       vmware_portgroup:
         hostname: "10.215.99.55"
