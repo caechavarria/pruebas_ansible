@@ -1,5 +1,4 @@
 ---
- - tasks:
     - name: Add Portgroup with Promiscuous
       vmware_portgroup:
         hostname: "10.215.99.55"
