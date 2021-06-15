@@ -5,7 +5,7 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   vars_files:
-   - roles/crear_vm_vmware/vars/vmware.yml
+    - roles/crear_vm_vmware/vars/vmware.yml
   tasks:
     - name: Add Portgroup with Promiscuous
       vmware_portgroup:
