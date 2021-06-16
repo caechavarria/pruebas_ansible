@@ -2,7 +2,7 @@
 - hosts: all
   connection: local
   tasks:
-  - name: snpa
+  - name: snap
     vmware_guest_snapshot: 
       hostname: 10.215.99.55
       username: administrator@vsphere.local
@@ -10,12 +10,12 @@
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
       folder: /VM-Linux/
-      name: "{{ item }}"
+      name: "LINUX01"
       state: present
       snapshot_name: snap1
       description: snap1_description
     delegate_to: localhost
-  - name: Remove snpa
+  - name: Remove snap
     vmware_guest_snapshot: 
       hostname: 10.215.99.55
       username: administrator@vsphere.local
@@ -23,7 +23,7 @@
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
       folder: /VM-Linux/
-      name: "{{ item }}"
+      name: "LINUX01"
       state: absent
       snapshot_name: snap1
       description: snap1_description
