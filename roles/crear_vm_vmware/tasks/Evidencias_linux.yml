@@ -56,10 +56,10 @@
       register: out
     - debug: var=out.stdout_lines
     
-    - name: Servicio ejecutado - systemctl | grep running
-      shell: systemctl | grep running >> /tmp/Evidencias.txt
-      register: servicio
-    - debug: var=out.stdout_lines
+    #- name: Servicio ejecutado - systemctl | grep running
+    #  shell: systemctl | grep running >> /tmp/Evidencias.txt
+    #  register: servicio
+    #- debug: var=out.stdout_lines
 
     #- name: Susbsicripcion - subscription-manager list
      # shell: subscription-manager list
