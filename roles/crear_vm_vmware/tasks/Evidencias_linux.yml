@@ -41,10 +41,10 @@
       register: out
     - debug: var=out.stdout_lines
 
-    - name: date - timedatectl
-      shell: timedatectl >> /tmp/Evidencias.txt
-      register: out 
-    - debug: var=out.stdout_lines
+    #- name: date - timedatectl
+    #  shell: timedatectl >> /tmp/Evidencias.txt
+    #  register: out 
+    #- debug: var=out.stdout_lines
                     
     - name: Ultimas actulizaciones - yum history
       shell: yum history >> /tmp/Evidencias.txt
