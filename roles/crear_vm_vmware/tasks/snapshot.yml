@@ -9,7 +9,7 @@
       password: Lab2021*
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
-      folder: /VMs-Linux/
+      folder: /VM-Linux/
       name: "{{ item }}"
       state: present
       snapshot_name: snap1
@@ -22,7 +22,7 @@
       password: Lab2021*
       validate_certs: False
       datacenter: CURANSIBLEDCLAB01
-      folder: /VMs-Linux/
+      folder: /VM-Linux/
       name: "{{ item }}"
       state: absent
       snapshot_name: snap1
