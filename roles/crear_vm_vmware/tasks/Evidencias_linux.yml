@@ -5,9 +5,7 @@
 # Compañía: WCW
 # Plataforma: LINUX
 ###################################################################################
-- name: evidencia
-  hosts: LINUX_CURACAO
-  tasks:
+  
     - name: nombre servidor - hostname
       shell: hostname > /tmp/Evidencias.txt
       register: out
