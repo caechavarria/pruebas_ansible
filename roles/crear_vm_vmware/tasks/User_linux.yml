@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars:
+    host_key_checking: false
+  tasks:
+   - name: Add a user linux
+     user:
+       name:  "{{ USER_NAME }}"
+       password: "{{ 'PASSWORD' | password_hash('sha512') }}"
+       shell: /bin/bash
+...
