@@ -6,5 +6,5 @@
   tags:
     - vmware
 - include_tasks: snapshot.yml
-- include_tasks: Evidencias_linux.yml
+#- include_tasks: Evidencias_linux.yml
 ...
