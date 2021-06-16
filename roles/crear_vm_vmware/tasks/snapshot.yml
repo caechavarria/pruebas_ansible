@@ -1,7 +1,4 @@
 ---
-- hosts: all
-  connection: local
-  tasks:
   - name: snap
     vmware_guest_snapshot: 
       hostname: 10.215.99.55
