@@ -7,5 +7,5 @@
   roles:
     - crear_vm_vmware
   vars_files:
-    - roles/crear_vm_vmware/vars/vmware.yml
+    - pruebas_ansible/roles/crear_vm_vmware/vars/vmware.yml
 ...
