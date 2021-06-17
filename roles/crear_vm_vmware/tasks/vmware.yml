@@ -78,4 +78,4 @@
   delegate_to: localhost
   register: deploy
   with_items:  
-        - "{{ num }}" 
+        - '{{ num }}'
