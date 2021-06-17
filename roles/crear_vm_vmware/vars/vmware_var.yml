@@ -24,9 +24,9 @@ dstore: 'Management'                            # Nombre del datastore donde se 
 ########### VARIABLES PORT GROUP #############
 ##############################################
 
-vswitch_name: vSwitch0
-portgroup_name: PG60
-vlan_id: 60
+#vswitch_name: vSwitch0
+#portgroup_name: PG60
+#vlan_id: 60
 
 ##############################################
 ###### Varibles Para Maquinas Virtuales ######
