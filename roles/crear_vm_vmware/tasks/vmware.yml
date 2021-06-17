@@ -19,7 +19,7 @@
           memory_mb: '{{ RAM | int * 1024 }}'                          # Cantidad de Memoria RAM a asignar
           num_cpus: '{{ CPU }}'                                        # Cantidad de CPUs a asignar
           scsi: paravirtual
-        networks:   
+        #networks:   
           #name: '{{ portgroup_name }}'                                 # Nombre de la Red a asignar
           #ip: '{{ IP }}'                                               # Dirección IP a asignar    
           #netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
