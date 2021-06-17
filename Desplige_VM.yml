@@ -7,6 +7,5 @@
   roles:
     - crear_vm_vmware
   vars_files:
-    - /roles/crear_vm_vmware/vars/vmware.yml
-    
+    - roles/crear_vm_vmware/vars/vmware.yml   
 ...
