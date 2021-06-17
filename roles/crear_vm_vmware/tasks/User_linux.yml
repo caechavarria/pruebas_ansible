@@ -1,7 +1,0 @@
----
-   - name: Add a user linux
-     user:
-       name:  "{{ USER_NAME }}"
-       password: "{{ 'PASSWORD' | password_hash('sha512') }}"
-       shell: /bin/bash
-...
