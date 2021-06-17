@@ -36,7 +36,7 @@ dstore: 'Management'                            # Nombre del datastore donde se 
 SRV:
 
 # Variables VM numero 1 
-  - name: VM1
+  - name: '{{ HOSTNAME }}'
     role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
     vm_name: '{{ HOSTNAME }}'             # Variable que define el nombre de la VM en VMware.
     ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
