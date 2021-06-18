@@ -1,7 +1,7 @@
 ---
 - name: creacion de VMS
   vmware_guest:
-        hostname: {{ vcenter }}                                       # IP del vCenter
+        hostname: '{{ vcenter }}'                                       # IP del vCenter
         username: '{{ vsphere_user }}'                        # Usuario de vCenter
         password: '{{ vsphere_password }}'                                           # Password de vCenter
         validate_certs: False
