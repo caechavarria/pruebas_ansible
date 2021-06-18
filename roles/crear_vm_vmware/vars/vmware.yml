@@ -17,7 +17,7 @@ cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde queda
 template: 'TEMPLETE_LINUX'                         # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
 vm_folder: '/VM-Linux'
 vm_net: 'Dospinos_Management'                   # Nombre del dispositivo de red de VMware tarjetas de red de las VMs.
-dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
+#dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
 #hostname: name="{{my_hostname}}"
 ##############################################
 ###### Varibles Para Maquinas Virtuales ######
@@ -38,8 +38,8 @@ SRV:
         netmask: '255.255.255.0'
         gateway: '10.215.99.254'
         type: static
-    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
-      - size_gb: 20
-        type: thin
-        datastore: '{{ dstore }}'
+    #disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+     # - size_gb: 20
+      #  type: thin
+       # datastore: '{{ dstore }}'
 ...
