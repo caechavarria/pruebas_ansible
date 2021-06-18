@@ -12,8 +12,8 @@
     folder: '{{ vm_folder }}'
     cluster: "{{ cluster_name }}"
     disk:
-    - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
-      type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
+    - size_gb: '{{ DISK }}'                                       
+      type: thin                                            
       datastore: 'Management'
     hardware:
       memory_mb: '{{ RAM }}'
@@ -23,7 +23,15 @@
       autologon: yes
       dns_servers:
        - 8.8.8.8 
-    networks: "{{ item.network }}"
+    networks:   
+    - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
+      ip: '{{ IP }}'                                               # Dirección IP a asignar    
+      netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
+      gateway: '{{ GW }}'                                          # Gateway a asignar
+      dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
+      - 8.8.8.8
+      device_type: vmxnet3                                          #Tipo de Interfaz de Red a asignar
+      start_connected: True
     wait_for_ip_address: yes
   register: deploy
   with_items: 
