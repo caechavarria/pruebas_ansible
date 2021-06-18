@@ -9,7 +9,7 @@ vsphere_user: 'administrator@vsphere.local'     # Usuario con privilegios sobre 
 vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere con privilegios para creacion de VMs
 datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro de vSphere en el cual seran alojadas las VMs.
 cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
-template: 'TEMPLETE_LINUX'                          # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
+template: '{{ TEMPLATE }}'                          # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
 
 ####       Variables VMware MV       ####
 #########################################
@@ -19,5 +19,4 @@ SRV:
   - name: VM1
     role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
     vm_name: '{{ vm_name }}'            # Variable que define el nombre de la VM en VMware.
-    vm_password: '{{ vm_password }}'    # password de la vM
 ...
