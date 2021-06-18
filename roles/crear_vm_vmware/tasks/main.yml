@@ -1,7 +1,7 @@
 ---
 # tasks file for Deploy VMs
 
-- include_task: Create-PortGroup.yml
+- include_tasks: Create-PortGroup.yml
 - include_tasks: Despliege_VariasMV.yml
   tags:
     - vmware
