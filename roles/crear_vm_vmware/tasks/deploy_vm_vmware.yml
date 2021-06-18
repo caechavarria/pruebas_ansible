@@ -3,7 +3,7 @@
   vmware_guest:
     hostname: '{{ vcenter }}'
     username: '{{ vsphere_user }}'
-    password: '{{ password }}'
+    password: 'Lab2021*'
     validate_certs: no
     name: '{{ item.vm_name }}'
     state: poweredon
