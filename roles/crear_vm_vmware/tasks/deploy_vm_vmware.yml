@@ -11,7 +11,10 @@
     datacenter: '{{ datacenter }}'
     folder: '{{ vm_folder }}'
     cluster: "{{ cluster_name }}"
-    disk: "{{ item.disks }}"
+    disk:
+    - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
+      type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
+      datastore: 'Management'
     hardware:
       memory_mb: '{{ RAM }}'
       num_cpus: '{{ CPU }}'
