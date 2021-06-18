@@ -5,8 +5,7 @@
         username: '{{ vsphere_user }}'                        # Usuario de vCenter
         password: '{{ vsphere_password }}'                                           # Password de vCenter
         validate_certs: False
-        name: "windows-"                               # Nombre como se visualizará en el vCenter
-        #name: '{{ item.vm_name }}'
+        name: "{{ Nombre_vm }}"                               # Nombre como se visualizará en el vCenter
         template: '{{ SO }}'                                           # Nombre de la Plantilla en el vCenterC
         datacenter: 'CURANSIBLEDCLAB01'                                # Nombre del Datacenter donde se va a desplegar
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
