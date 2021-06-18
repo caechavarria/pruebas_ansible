@@ -1,11 +1,9 @@
 ---
-- hosts: all
-  connection: local
-  tasks:
+- name: creacion de VMS
     - vmware_guest:
-        hostname: 10.215.99.55                                         # IP del vCenter
-        username: 'administrator@vsphere.local'                        # Usuario de vCenter
-        password: 'Lab2021*'                                           # Password de vCenter
+        hostname: {{ vcenter }}                                       # IP del vCenter
+        username: '{{ vsphere_user }}'                        # Usuario de vCenter
+        password: '{{ vsphere_password }}'                                           # Password de vCenter
         validate_certs: False
         name: "{{ HOSTNAME }}{{ item }}"                               # Nombre como se visualizará en el vCenter
         template: '{{ SO }}'                                           # Nombre de la Plantilla en el vCenterC
@@ -81,5 +79,5 @@
       delegate_to: localhost
       register: deploy
       with_items:                                # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
-          -1
+          - '{{ SRV }}'
 ...  
