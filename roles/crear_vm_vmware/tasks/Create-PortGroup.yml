@@ -1,9 +1,9 @@
 ---
 - name: Add Portgroup with Promiscuous
   vmware_portgroup:
-        hostname: '{{ vcenter }}'                                       # IP del vCenter
-        username: '{{ vsphere_user }}'                        # Usuario de vCenter
-        password: '{{ vsphere_password }}'
+        hostname: "10.215.99.55"
+        username: "administrator@vsphere.local"
+        password: "Lab2021*"
         esxi_hostname: '10.215.99.60'
         switch_name: "{{ vswitch_name }}"
         portgroup_name: "{{ portgroup_name }}"
