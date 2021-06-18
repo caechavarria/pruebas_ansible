@@ -19,4 +19,6 @@ SRV:
   - name: VM1
     role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
     vm_name: '{{ Nombre_vm }}'            # Variable que define el nombre de la VM en VMware.
+    networks:   
+        - name: '{{ portgroup_name }}'   
 ...
