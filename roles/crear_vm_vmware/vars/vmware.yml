@@ -29,7 +29,7 @@ SRV:
 # Variables VM numero 1 
   - name: VM1
     role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
-    vm_name: 'LINUX03'             # Variable que define el nombre de la VM en VMware.
+    vm_name: '{{ vm_name }}            # Variable que define el nombre de la VM en VMware.
     ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
     cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
     network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
