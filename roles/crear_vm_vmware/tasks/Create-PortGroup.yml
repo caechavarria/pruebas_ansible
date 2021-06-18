@@ -1,12 +1,6 @@
 ---
-- hosts: all
-  connection: local
-  gather_facts: false
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  tasks:
-    - name: Add Portgroup with Promiscuous
-      vmware_portgroup:
+- name: Add Portgroup with Promiscuous
+  vmware_portgroup:
         hostname: "10.215.99.55"
         username: "administrator@vsphere.local"
         password: "Lab2021*"
