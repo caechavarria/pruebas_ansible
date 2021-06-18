@@ -11,7 +11,7 @@
     datacenter: '{{ datacenter }}'
     folder: '{{ vm_folder }}'
     cluster: "{{ cluster_name }}"
-    disk: "{{ DISK }}"
+    disk: "{{ item.disks }}"
     hardware:
       memory_mb: '{{ RAM }}'
       num_cpus: '{{ CPU }}'
