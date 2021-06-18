@@ -24,13 +24,13 @@
       dns_servers:
        - 8.8.8.8 
     networks:   
-    - name: '{{ portgroup_name }}'                                   # Nombre de la Red a asignar
-      ip: '{{ IP }}'                                               # Dirección IP a asignar    
-      netmask: '{{ MASK }}'                                        # Mascara de Red a asignar
-      gateway: '{{ GW }}'                                          # Gateway a asignar
-      dns_servers:                                                 # Dirección (es) IP de los DNS a asignar
+    - name: '{{ portgroup_name }}'                                   
+      ip: '{{ IP }}'                                              
+      netmask: '{{ MASK }}'                                       
+      gateway: '{{ GW }}'                                        
+      dns_servers:                                               
       - 8.8.8.8
-      device_type: vmxnet3                                          #Tipo de Interfaz de Red a asignar
+      device_type: vmxnet3                                          
       start_connected: True
     wait_for_ip_address: yes
   register: deploy
