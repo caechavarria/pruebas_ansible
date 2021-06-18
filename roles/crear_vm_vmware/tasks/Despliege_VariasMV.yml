@@ -11,7 +11,6 @@
         cluster: 'Cluster_ansible'                                     # Nombre del Cluster donde se va a desplegar
         folder: '{{ FOLDER }}'                                       # Nombre del folder donde se va a desplegar
         annotation: 'Servidor desplegado desde Ansible AWX'            # Nota que se quiera colocar en el Servidor desplegado
-        annotation: 'hola' 
         disk:
         - size_gb: '{{ DISK }}'                                        # Tamaño a asignar al disco
           type: thin                                                   # Formato del disco thin, thick o eagerzeroedthick 
