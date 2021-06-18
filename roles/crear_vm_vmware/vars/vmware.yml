@@ -32,12 +32,12 @@ SRV:
     vm_name: '{{ vm_name }}'            # Variable que define el nombre de la VM en VMware.
     #ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
     #cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
-    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
-      - name: '{{ vm_net }}'            
-        ip: '10.215.99.106'   
-        netmask: '255.255.255.0'
-        gateway: '10.215.99.254'
-        type: static
+    #network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+     # - name: '{{ vm_net }}'            
+      #  ip: '10.215.99.106'   
+       # netmask: '255.255.255.0'
+        #gateway: '10.215.99.254'
+        #ºtype: static
     #disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
      # - size_gb: 20
       #  type: thin
