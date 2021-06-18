@@ -27,5 +27,5 @@
            #- vmnic2
           #standby_adapters:
            #- vmnic0
-      delegate_to: 10.215.99.103 
+  delegate_to: localhost 
       #register: teaming_result
