@@ -35,8 +35,8 @@ SRV:
         netmask: '255.255.255.0'
         gateway: '10.215.99.254'
         type: static
-    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
-      - size_gb: 20
-        type: thin
-        datastore: '{{ dstore }}'
+    #disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+     # - size_gb: 20
+      #  type: thin
+       # datastore: '{{ dstore }}'
 ...
