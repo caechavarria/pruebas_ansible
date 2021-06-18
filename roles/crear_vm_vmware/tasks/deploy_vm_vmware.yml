@@ -14,7 +14,7 @@
     disk: "{{ item.disks }}"
     hardware:
       memory_mb: '{{ RAM }}'
-      num_cpus: '{{ item.cpu }}'
+      num_cpus: '{{ CPU }}'
       scsi: paravirtual
     customization:
       autologon: yes
