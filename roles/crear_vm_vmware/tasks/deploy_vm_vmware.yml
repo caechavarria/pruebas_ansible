@@ -13,7 +13,7 @@
     cluster: "{{ cluster_name }}"
     disk: "{{ item.disks }}"
     hardware:
-      memory_mb: '{{ item.ram }}'
+      #memory_mb: '{{ item.ram }}'
       num_cpus: '{{ item.cpu }}'
       scsi: paravirtual
     customization:
