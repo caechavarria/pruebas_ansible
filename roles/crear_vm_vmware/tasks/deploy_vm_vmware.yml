@@ -1,9 +1,9 @@
 ---
 - name: Create a VM from a template
   vmware_guest:
-    hostname: '{{ vcenter }}'
-    username: '{{ vsphere_user }}'
-    password: 'Lab2021*'
+    vcenter: '10.215.99.55'                         # IP del vCenter donde se crearan las VMs
+    vsphere_user: 'administrator@vsphere.local'     # Usuario con privilegios sobre vSphere para creacion de VMs
+    vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere con privilegios para creacion de VMs
     validate_certs: no
     name: '{{ item.vm_name }}'
     state: poweredon
