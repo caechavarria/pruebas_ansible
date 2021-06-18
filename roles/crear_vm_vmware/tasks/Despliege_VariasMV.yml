@@ -1,6 +1,6 @@
 ---
 - name: creacion de VMS
-    - vmware_guest:
+  vmware_guest:
         hostname: {{ vcenter }}                                       # IP del vCenter
         username: '{{ vsphere_user }}'                        # Usuario de vCenter
         password: '{{ vsphere_password }}'                                           # Password de vCenter
@@ -77,7 +77,7 @@
         state: poweredon                                               # Estado del Servidor luego del despliegue
         wait_for_ip_address: yes        
       delegate_to: localhost
-      register: deploy
-      with_items:                                # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
-          - '{{ SRV }}'
+  register: deploy
+  with_items:                                # Cantidad de Servidores a crear (- 1 (crea un servidor), - 2 (crea dos servidores), etc)
+     - '{{ SRV }}'
 ...  
