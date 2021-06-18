@@ -33,7 +33,7 @@ vcenter: '10.215.99.55'                         # IP del vCenter donde se creara
 ##############################################
 
 # Variables VM numero 1 - Servidor BD
-SRV:
+#SRV:
 
 # Variables VM numero 1 
   - name: '{{ HOSTNAME }}'
