@@ -7,7 +7,7 @@
     validate_certs: no
     name: '{{ item.vm_name }}'
     state: poweredon
-    #template: '{{ template }}' 
+    template: '{{ template }}' 
     datacenter: '{{ datacenter }}'
     folder: '{{ vm_folder }}'
     cluster: "{{ cluster_name }}"
