@@ -2,7 +2,7 @@
 ---
 - hosts: all
   connection: local
-  var_files: 
+  vars_files: 
     - Vars.yml
   tasks:
     - vmware_guest:
