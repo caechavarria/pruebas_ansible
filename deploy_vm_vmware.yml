@@ -26,7 +26,7 @@
         username: "{{ vsphere_user }}"
         validate_certs: false
         #wait_for_ip_address: true
-        - 
+      - 
          cpu: "1"
          name: VM1
          network: 
