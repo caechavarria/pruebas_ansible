@@ -1,8 +1,20 @@
 ---
 - hosts: all
   connection: local
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - vmware_guest:
+    - name: Add Portgroup with Promiscuous
+      vmware_portgroup:
+        hostname: "10.215.99.55"
+        username: "administrator@vsphere.local"
+        password: "Lab2021*"
+        esxi_hostname: '10.215.99.60'
+        switch_name: "{{ vswitch_name }}"
+        portgroup_name: "{{ portgroup_name }}"
+        vlan_id: "{{ vlan_id }}"
+        validate_certs: False
+     - vmware_guest:
         hostname: 10.215.99.55                                         # IP del vCenter
         username: 'administrator@vsphere.local'                        # Usuario de vCenter
         password: 'Lab2021*'                                           # Password de vCenter
