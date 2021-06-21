@@ -20,7 +20,7 @@
         num_cpus: '{{ item.cpu }}'
         scsi: paravirtual
         customization:
-         autologon: yes
+        autologon: yes
         dns_servers:
          - 8.8.8.8 
 #        - 10.129.0.241 
