@@ -36,14 +36,14 @@
       cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
       network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
       - name: '{{ vm_net }}'            
-         ip: '10.215.99.104'
-         netmask: '255.255.255.0'
-         gateway: '10.215.99.254'
-         type: static
-         disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
-         - size_gb: 20
-         type: thin
-         datastore: '{{ dstore }}'
+        ip: '10.215.99.104'
+        netmask: '255.255.255.0'
+        gateway: '10.215.99.254'
+        type: static
+        disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+        - size_gb: 20
+          type: thin
+          datastore: '{{ dstore }}'
       register: deploy
       with_items: 
         - '{{ SRV }}'
