@@ -14,7 +14,7 @@ vsphere_user: 'administrator@vsphere.local'     # Usuario con privilegios sobre 
 vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere con privilegios para creacion de VMs
 datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro de vSphere en el cual seran alojadas las VMs.
 cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
-template: 'CURLINLAB01'                         # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
+template: 'TEMPLETE_LINUX'                         # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
 vm_folder: '/VM-Linux'
 vm_net: 'Dospinos_Management'                   # Nombre del dispositivo de red de VMware tarjetas de red de las VMs.
 dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
