@@ -28,7 +28,7 @@
 #      domain: 
       networks: "{{ item.network }}"
       wait_for_ip_address: yes
-  register: deploy
+      register: deploy
   with_items: 
      - '{{ SRV }}'
 ...
