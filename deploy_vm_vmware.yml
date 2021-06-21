@@ -1,50 +1,51 @@
----
-- hosts: all
+--- 
+- 
   connection: local
+  hosts: all
+  tasks: 
+    - 
+      vmware_guest: 
+        autologon: true
+        cluster: "{{ cluster_name }}"
+        customization: ~
+        datacenter: "{{ datacenter }}"
+        disk: "{{ item.disks }}"
+        dns_servers: 
+          - "8.8.8.8"
+        folder: "{{ vm_folder }}"
+        hardware: ~
+        hostname: "{{ vcenter }}"
+        memory_mb: "{{ item.ram }}"
+        name: "{{ item.vm_name }}"
+        networks: "{{ item.network }}"
+        num_cpus: "{{ item.cpu }}"
+        password: "{{ vsphere_password }}"
+        scsi: paravirtual
+        state: poweredon
+        template: "{{ template }}"
+        username: "{{ vsphere_user }}"
+        validate_certs: false
+        wait_for_ip_address: true
+    - 
+      cpu: "1"
+      name: VM1
+      network: 
+        - 
+          disks: 
+            - 
+              datastore: "{{ dstore }}"
+              size_gb: 20
+              type: thin
+          gateway: "10.215.99.254"
+          ip: "10.215.99.104"
+          name: "{{ vm_net }}"
+          netmask: "255.255.255.0"
+          type: static
+      ram: "1024"
+      register: deploy
+      role: worker-server
+      vm_name: CURLABLIX01
+      with_items: 
+        - "{{ SRV }}"
   vars_files: 
     - Vars.yml
-  tasks:
-    - vmware_guest:
-        hostname: '{{ vcenter }}'
-        username: '{{ vsphere_user }}'
-        password: '{{ vsphere_password }}'
-        validate_certs: no
-        name: '{{ item.vm_name }}'
-        state: poweredon
-        template: '{{ template }}'
-        datacenter: '{{ datacenter }}'
-        folder: '{{ vm_folder }}'
-        cluster: "{{ cluster_name }}"
-        disk: "{{ item.disks }}"
-        hardware:
-        memory_mb: '{{ item.ram }}'
-        num_cpus: '{{ item.cpu }}'
-        scsi: paravirtual
-        customization:
-        autologon: yes
-        dns_servers:
-         - 8.8.8.8 
-#        - 10.129.0.241 
-#        - 10.140.1.41 
-#      domain: 
-        networks: "{{ item.network }}"
-        wait_for_ip_address: yes
-    - name: VM1
-      role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
-      vm_name: 'CURLABLIX01'             # Variable que define el nombre de la VM en VMware.
-      ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
-      cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
-      network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
-      - name: '{{ vm_net }}'            
-        ip: '10.215.99.104'
-        netmask: '255.255.255.0'
-        gateway: '10.215.99.254'
-        type: static
-        disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
-        - size_gb: 20
-          type: thin
-          datastore: '{{ dstore }}'
-      register: deploy
-      with_items: 
-        - '{{ SRV }}'
-...
