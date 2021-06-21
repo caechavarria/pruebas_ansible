@@ -11,6 +11,7 @@ datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro d
 cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
 template: '{{ TEMPLATE_VAR }}'  
 #portgroup_name: '{{ PORT }}'
+vm_name: '{{ Nombre_vm }}'
 
 ####       Variables VMware MV       ####
 #########################################
@@ -19,5 +20,5 @@ SRV:
 # Variables VM numero 1 
   - name: VM1
     role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
-    vm_name: '{{ Nombre_vm }}'            # Variable que define el nombre de la VM en VMware.
+    #vm_name: '{{ Nombre_vm }}'            # Variable que define el nombre de la VM en VMware.
 ...
