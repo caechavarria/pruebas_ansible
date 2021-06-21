@@ -2,6 +2,8 @@
 ---
 - hosts: all
   connection: local
+  var_files: 
+    - Vars.yml
   tasks:
     - vmware_guest:
         hostname: '{{ vcenter }}'
