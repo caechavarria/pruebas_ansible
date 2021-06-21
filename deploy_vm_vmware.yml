@@ -30,7 +30,7 @@
 #      domain: 
         networks: "{{ item.network }}"
         wait_for_ip_address: yes
-     - name: VM1
+    - name: VM1
        role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
         vm_name: 'CURLABLIX01'             # Variable que define el nombre de la VM en VMware.
           ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
