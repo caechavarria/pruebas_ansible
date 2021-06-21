@@ -1,0 +1,164 @@
+---
+# vars file for Create VMs ON Vmware
+
+#################################################################################
+#### VARIABLES PLAYBOOK CREACION DE MAQUINAS VIRTUALES DESDE TMEPLATE VMWARE ####
+#################################################################################
+
+#########################################
+###### Definicion Variables VMware ######
+#########################################
+# IP del vCenter donde se crearan las VMs
+vcenter: '10.215.99.55'                         # IP del vCenter donde se crearan las VMs
+vsphere_user: 'administrator@vsphere.local'     # Usuario con privilegios sobre vSphere para creacion de VMs
+vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere con privilegios para creacion de VMs
+datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro de vSphere en el cual seran alojadas las VMs.
+cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
+template: 'CURLINLAB01'                         # Nombre de la plantilla cargada en el vCenter, desde la cual se crearan las VMs
+vm_folder: '/VM-Linux'
+vm_net: 'Dospinos_Management'                   # Nombre del dispositivo de red de VMware tarjetas de red de las VMs.
+dstore: 'Management'                            # Nombre del datastore donde se almacenaran los archivos de las VMs.
+hostname: 'new_hostname'                        # Nombre del MV 
+
+##############################################
+###### Varibles Para Maquinas Virtuales ######
+##############################################
+
+# Variables VM numero 1 - Servidor BD
+SRV:
+#  - name: VM1
+#    role: 'bd-server'                   # Define el rol del servidor en la plataforma de Vmware.
+#    vm_name: 'curlabvm01'                 # Variable que define el nombre de la VM en VMware.                         
+#    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+#    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+#    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+#      - name: '{{ vm_net }}'
+#        ip: '192.168.27.184'
+#        netmask: '255.255.255.0' 
+#        gateway: '192.168.27.94'
+#        type: static
+#      - name: '{{ vm_net }}'
+#        ip: '192.167.28.101'
+#        netmask: '255.255.255.0'
+#        type: static
+#    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+#      - size_gb: 60
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 16
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 60
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 70
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 10
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 10
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 10
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 10
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 10
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 5
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 5 
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 50
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 5
+#        type: thin
+#        datastore: '{{ dstore }}'
+
+# Variables VM numero 1 
+  - name: VM1
+    role: 'worker-server'                # Define el rol del servidor en la plataforma de VMware.
+    vm_name: 'CURLABLIX01'             # Variable que define el nombre de la VM en VMware.
+    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+      - name: '{{ vm_net }}'            
+        ip: '10.215.99.104'
+        netmask: '255.255.255.0'
+        gateway: '10.215.99.254'
+        type: static
+    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+      - size_gb: 20
+        type: thin
+        datastore: '{{ dstore }}'
+#      - size_gb: 50
+#        type: thin
+#        datastore: '{{ dstore }}'
+
+# Variables VM numero 3 - Worker Node 2 - Docker
+#  - name: VM3  
+#    role: 'worker-server'                # Define el rol del servidor en la plataforma de Alertas Moviles QA.
+#   vm_name: 'cwnapdoeqa02'             # Variable que define el nombre de la VM en VMware. 
+#    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB. 
+#    cpu: '1'                            # Cantidad de procesadores a asignar a la VM. 
+#    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+#      - name: '{{ vm_net }}'
+#        ip: '192.168.27.186'
+#        netmask: '255.255.255.0'
+#        gateway: '192.168.27.94'
+#        type: static
+#    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+#      - size_gb: 60
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 50
+#        type: thin
+#        datastore: '{{ dstore }}'
+
+# Variables VM numero 4 - Infra Node 1
+#  - name: VM4
+#    role: 'infra-server'                 # Define el rol del servidor en la plataforma de Alertas Moviles QA.
+#    vm_name: 'cinapdoeqa01'             # Variable que define el nombre de la VM en VMware.
+#    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+#    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+#    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+#      - name: '{{ vm_net }}'
+#        ip: '192.168.27.187'
+#        netmask: '255.255.255.0'
+#        gateway: '192.168.27.94'
+#        type: static
+#    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+#      - size_gb: 60
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 50
+#        type: thin
+#        datastore: '{{ dstore }}'
+
+# Variables VM numero 5 - Master K8s Node 1
+#  - name: VM5
+#    role: 'master-server'                # Define el rol del servidor en la plataforma de Alertas Moviles QA.
+#    vm_name: 'k8sapmanqa01'             # Variable que define el nombre de la VM en VMware.
+#    ram: '1024'                         # Cantidad de memoria a asignar a la VM. Se recomienda valor en MB.
+#    cpu: '1'                            # Cantidad de procesadores a asignar a la VM.
+#    network:                            # Definicion de arreglo de interfaces de Red (network). Definir ip, netmask, gateway, type. Por cada tarjeta a crear en la VM.
+#      - name: '{{ vm_net }}'
+#        ip: '192.168.27.188'
+#        netmask: '255.255.255.0'
+#        gateway: '192.168.27.94'
+#        type: static
+#    disks:                              # Definicion de Discos VM1 - Definir size_gb, type y datastore. Se deben definir por cada una de los discos a crear.
+#      - size_gb: 60
+#        type: thin
+#        datastore: '{{ dstore }}'
+#      - size_gb: 50
+#        type: thin
+#        datastore: '{{ dstore }}'
+...
