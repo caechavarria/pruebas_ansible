@@ -10,9 +10,9 @@
         username: "administrator@vsphere.local"
         password: "Lab2021*"
         esxi_hostname: '10.215.99.60'
-        switch_name: "{{ vswitch_name }}"
-        portgroup_name: "{{ portgroup_name }}"
-        vlan_id: "{{ vlan_id }}"
+        switch_name: "vSwicth0"
+        portgroup_name: "PG01"
+        vlan_id: "2"
         validate_certs: False
     - vmware_guest:
         hostname: 10.215.99.55                                         # IP del vCenter
