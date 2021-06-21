@@ -10,7 +10,7 @@ vsphere_password: 'Lab2021*'                    # Password de usuario de vSphere
 datacenter: 'CURANSIBLEDCLAB01'                 # Nombre del Datacenter dentro de vSphere en el cual seran alojadas las VMs.
 cluster_name: 'Cluster_ansible'                 # Nombre del cluster donde quedaran las maquinas en el vCenter.
 template: '{{ TEMPLATE_VAR }}'  
-portgroup_name: '{{ PORT }}'
+#portgroup_name: '{{ PORT }}'
 
 ####       Variables VMware MV       ####
 #########################################
